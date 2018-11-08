@@ -16,8 +16,9 @@ export class GameComponent implements OnInit {
   foundPairs = 0;
   gameEnded = false;
   gameForm: FormGroup;
-
+  bestScore = 400;
   sizes = [2, 4, 6, 8, 10, 12, 14, 15, 16, 18];
+  isTimeOut = false;
 
 
   constructor(private gameService: GameService) { }
@@ -33,6 +34,7 @@ export class GameComponent implements OnInit {
 
   checkGameStatus() {
     if (this.foundPairs === this.game.cards.length / 2) {
+      this.bestScore = this.bestScore < this.game.score ? this.bestScore : this.game.score;
       this.gameEnded = true;
     }
   }
@@ -49,6 +51,8 @@ export class GameComponent implements OnInit {
       this.secondClickCard.flipCard();
       const isFound = this.checkHandStatus();
       if (!isFound) {
+        this.isTimeOut = true;
+        setTimeout(() => this.isTimeOut = false, 1000);
         setTimeout(() => this.firstClickCard.flipCard(), 1000);
         setTimeout(() => this.secondClickCard.flipCard(), 1000);
       } else {

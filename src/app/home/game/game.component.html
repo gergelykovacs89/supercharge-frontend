@@ -5,16 +5,21 @@
         <div class="card" *ngFor="let card of game.cards">
           <a class="card-link"
              style="cursor: pointer"
-             (click)="!card.found && !card.flipped ? onClick(card) : null"
+             (click)="!card.found && !card.flipped && !isTimeOut ? onClick(card) : null"
           >
             <img class="card-img-top" src="{{ card.flipped ? card.img : card.backImg }}" alt="{{ card.flipped ? card.img : card.backImg  }}">
           </a>
         </div>
+        <div class="card" style="border-color: white;">
+            <h5>Your Score: {{ game.score }}</h5>
+            <h3>Best Score: {{ bestScore }}</h3>
+        </div>
+        <div class="card" style="border-color: white" *ngIf="gameEnded">
+          <h4>Congratulations!</h4>
+          <hr>
+          <button class="btn btn-dark" (click)="onRestart()">Play New Game</button>
+        </div>
       </div>
-      <div *ngIf="gameEnded">
-        <h4>Congratulations, you won!</h4>
-        <hr>
-        <button class="btn btn-dark" (click)="onRestart()">Play New Game</button>
         <!--<form class="form-inline" [formGroup]="gameForm" (ngSubmit)="onSubmit()">-->
           <!--<div class="form-group mb-2">-->
             <!--<label for="deckSize" class="sr-only">Deck size</label>-->
@@ -27,7 +32,7 @@
           <!--</div>-->
           <!--<button type="submit" class="btn btn-dark mb-2">Start New Game</button>-->
         <!--</form>-->
-      </div>
+
 
     </div>
   </div>
