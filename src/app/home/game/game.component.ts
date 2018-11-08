@@ -25,7 +25,6 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.game = this.gameService.setupGame();
-    console.log('Match found pairs: ', this.game.cards.length / 2);
   }
 
   checkHandStatus(): boolean {
@@ -42,7 +41,6 @@ export class GameComponent implements OnInit {
 
   onClick(card: CardModel) {
     this.game.rounds++;
-    console.log(this.game.rounds);
     if (this.game.rounds % 2 !== 0) {
       this.firstClickCard = card;
       this.firstClickCard.flipCard();

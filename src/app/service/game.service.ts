@@ -18,7 +18,6 @@ const imgPathArray = [
   providedIn: 'root'
 })
 
-
 export class GameService {
   game: GameModel = new GameModel(1, 'player1', []);
 
@@ -33,6 +32,4 @@ export class GameService {
   restart() {
     this.game = new GameModel(1, 'player1', []);
   }
-
-
 }
