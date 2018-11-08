@@ -5,7 +5,7 @@
         <div class="card" *ngFor="let card of game.cards">
           <a class="card-link"
              style="cursor: pointer"
-             (click)="card.flipCard()"
+             (click)="!card.found ? onClick(card) : null"
           >
             <img class="card-img-top" src="{{ card.flipped ? card.img : card.backImg }}" alt="{{ card.flipped ? card.img : card.backImg  }}">
           </a>
