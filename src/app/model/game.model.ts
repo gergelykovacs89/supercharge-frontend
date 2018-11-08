@@ -5,6 +5,7 @@ export class GameModel {
   player: string;
   cards: CardModel[];
   score: number;
+  rounds: number;
 
 
   constructor(id: number, player: string, cards: CardModel[]) {
@@ -12,6 +13,7 @@ export class GameModel {
     this.player = player;
     this.cards = cards;
     this.score = 0;
+    this.rounds = 0;
   }
 
   addCards(numofCards: number, imgArray: string[]) {

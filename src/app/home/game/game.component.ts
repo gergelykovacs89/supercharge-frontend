@@ -41,14 +41,15 @@ export class GameComponent implements OnInit {
 
 
   onClick(card: CardModel) {
-    this.game.score++;
-    console.log(this.game.score);
-    if (this.game.score % 2 !== 0) {
+    this.game.rounds++;
+    console.log(this.game.rounds);
+    if (this.game.rounds % 2 !== 0) {
       this.firstClickCard = card;
       this.firstClickCard.flipCard();
-    } else if (this.game.score % 2 === 0) {
+    } else if (this.game.rounds % 2 === 0) {
       this.secondClickCard = card;
       this.secondClickCard.flipCard();
+      this.game.score++;
       const isFound = this.checkHandStatus();
       if (!isFound) {
         this.isTimeOut = true;
