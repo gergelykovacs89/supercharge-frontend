@@ -1,3 +1,16 @@
-<p>
-  game works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="card-columns">
+        <div class="card" *ngFor="let card of game.cards">
+          <a class="card-link"
+             style="cursor: pointer"
+             (click)="card.flipCard()"
+          >
+            <img class="card-img-top" src="{{ card.flipped ? card.img : card.backImg }}" alt="{{ card.flipped ? card.img : card.backImg  }}">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

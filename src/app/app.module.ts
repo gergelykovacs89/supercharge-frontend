@@ -7,6 +7,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { IndexComponent } from './home/index/index.component';
 import { GameComponent } from './home/game/game.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
