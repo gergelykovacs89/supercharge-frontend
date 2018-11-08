@@ -30,5 +30,9 @@ export class GameService {
     return this.game;
   }
 
+  restart() {
+    this.game = new GameModel(1, 'player1', []);
+  }
+
 
 }
